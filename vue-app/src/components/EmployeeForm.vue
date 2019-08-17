@@ -18,7 +18,7 @@
         @focus="clearStatus"
       />
       <p v-if="error && submitting" class="error-message">❗Please fill out all required fields</p>
-      <p v-if="success && submitting" class="success-message">✅Employee successfully added</p>
+      <p v-if="success" class="success-message">✅Employee successfully added</p>
       <button>Add employee</button>
     </form>
   </div>
@@ -49,6 +49,7 @@ export default {
       }
 
       this.$emit("add:employee", this.employee);
+      this.$refs.first.focus();
       this.employee = {
         name: "",
         email: ""
